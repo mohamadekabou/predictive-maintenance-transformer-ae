@@ -1,0 +1,13 @@
+# Ignorer les dossiers de données lourds
+1st_test/
+2nd_test/
+3rd_test/
+
+# Ignorer les fichiers temporaires Python
+__pycache__/
+*.pyc
+
+# Ignorer les environnements virtuels (si tu en as)
+venv/
+env/
+.env
