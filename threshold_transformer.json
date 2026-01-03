@@ -1,0 +1,11 @@
+{
+  "threshold": 0.9673517346382141,
+  "time_steps": 10,
+  "segment_size": 512,
+  "mu_train": 0.6632843613624573,
+  "sigma_train": 0.10313214361667633,
+  "threshold_q995": 0.9673517346382141,
+  "threshold_max": 1.2382372617721558,
+  "train_ratio": 0.7,
+  "decision_ratio": 0.05
+}
