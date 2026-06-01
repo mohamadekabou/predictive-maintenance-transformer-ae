@@ -1,79 +1,88 @@
-# 🏭 Transformer Autoencoder — Réduction de dimension & Visualisation (PFE)
+# 🏭 Predictive Maintenance — Transformer Autoencoder
 
-## 📌 Contexte
-**Sujet du PFE (module Calcul Scientifique)** :  
-Autoencodeurs profonds pour la réduction de dimension et la visualisation de données complexes.
+> Unsupervised anomaly detection on multi-sensor vibration signals using a **Transformer Autoencoder**, with dimensionality reduction, latent-space visualization, and an interactive **Streamlit** app.
 
-**Application** :  
-Maintenance prédictive sur signaux vibratoires multi-capteurs  
-(NASA / IMS Bearing Dataset)
-
-Ce projet illustre l’utilisation des **autoencodeurs profonds**, et en particulier des
-**Transformer Autoencoders**, pour analyser des données industrielles complexes de grande dimension
-dans un cadre non supervisé.
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/Keras%2FTensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
+![Status](https://img.shields.io/badge/status-completed-success)
 
 ---
 
-## 🎯 Objectifs
-- Apprendre une **représentation latente compacte**
-- Réduire la dimension des séries temporelles vibratoires
-- Visualiser l’espace latent de manière interprétable
-- Détecter automatiquement des comportements anormaux
-- Proposer une application interactive d’analyse
+## 📌 Context
 
----
+Final-year project (Master 2 — *Calcul Scientifique* module): **deep autoencoders for dimensionality reduction and visualization of complex data**.
 
-## 🧠 Approche
-Pipeline non supervisé basé sur :
+**Application:** predictive maintenance on multi-sensor vibration signals (**NASA / IMS Bearing Dataset**). The project demonstrates how deep autoencoders — and Transformer Autoencoders in particular — can analyze high-dimensional industrial data in a fully **unsupervised** setting.
 
-- **Transformer Autoencoder**
-  - Encoder–Decoder avec Self-Attention
-  - Apprentissage d’un espace latent non linéaire
+## 🎯 Objectives
 
-- **Visualisation**
-  - Projection PCA 2D appliquée au latent
+- Learn a compact latent representation of vibration signals
+- Reduce the dimensionality of vibratory time series
+- Visualize the latent space in an interpretable way
+- Automatically detect abnormal behavior (early failure signs)
+- Deliver an interactive analysis app
 
-- **Détection d’anomalies**
-  - Erreur de reconstruction (MAE)
-  - Seuil d’entraînement
-  - Option seuil adaptatif robuste (MAD)
+## 🧠 Approach
 
-- **Application Streamlit**
-  - Analyse et visualisation interactive des résultats
+Unsupervised pipeline built around:
 
----
+- **Transformer Autoencoder** — Encoder–Decoder with Self-Attention, learning a non-linear latent space
+- **Visualization** — 2D PCA projection of the latent representation
+- **Anomaly detection** — reconstruction error (MAE), training threshold, with an optional robust adaptive threshold (MAD)
+- **Streamlit app** — interactive analysis and visualization of results
 
-## ✨ Fonctionnalités
-- Upload de fichiers TAB (4 capteurs IMS)
-- Prétraitement : segmentation + extraction MAV
-- Fenêtrage temporel (`TIME_STEPS`)
-- Calcul du score MAE
-- Visualisation :
-  - score MAE + seuil
-  - PCA 2D du latent
-- Mode debug (ratio, MAD, paramètres internes)
+## ✨ Features
 
----
+- Upload of TAB files (4 IMS sensors)
+- Preprocessing: segmentation + MAV (Mean Absolute Value) extraction
+- Temporal windowing (`TIME_STEPS`)
+- MAE reconstruction-score computation
+- Visualization: MAE score + threshold, and 2D PCA of the latent space
+- Debug mode (ratio, MAD, internal parameters)
 
-## 📂 Structure du dépôt
-├── app.py
+## 📊 Results
+
+<!-- 👉 Ajoute ici une capture d'écran de ton app Streamlit : glisse l'image dans l'éditeur GitHub, ça génère le lien tout seul -->
+<!-- ![Streamlit demo](docs/demo.png) -->
+
+- The Transformer Autoencoder reconstructs normal behavior with low error; abnormal windows produce a clear spike in reconstruction error.
+- The 2D PCA of the latent space separates normal vs. degraded states visually.
+- *(Add your concrete numbers here: detection threshold, run-to-failure point detected, etc.)*
+
+## 🗂️ Repository structure
+
+```
+.
+├── app.py                                  # Streamlit application
 ├── requirements.txt
-├── README.md
-├── notebooks/
+├── notebooks/                              # exploration & training
 ├── report/
-│ └── Rapport_PFE_Calcul_Scientifique_KABOURI_Mohamed.pdf
-├── scaler_bearing.gz
-├── threshold_transformer.json
-└── transformer_bearing_anomaly_detection.keras
+│   └── Rapport_PFE_Calcul_Scientifique_KABOURI_Mohamed.pdf
+├── scaler_bearing.gz                       # fitted scaler
+├── threshold_transformer.json             # anomaly threshold
+└── transformer_bearing_anomaly_detection.keras   # trained model
+```
 
----
+## 🚀 Installation & usage
 
-## 🚀 Installation & exécution
 ```bash
+git clone https://github.com/mohamadekabou/predictive-maintenance-transformer-ae.git
+cd predictive-maintenance-transformer-ae
 pip install -r requirements.txt
 streamlit run app.py
-📄 Rapport
+```
 
-Rapport du projet (Calcul Scientifique) disponible ici :
+## 🧰 Tech stack
 
-report/Rapport_PFE_Calcul_Scientifique_KABOURI_Mohamed.pdf
+`Python` · `Keras / TensorFlow` · `Transformer Autoencoder` · `Self-Attention` · `PCA` · `Streamlit` · `NumPy` · `scikit-learn`
+
+## 📄 Report
+
+Full project report (Calcul Scientifique) available here:
+[`report/Rapport_PFE_Calcul_Scientifique_KABOURI_Mohamed.pdf`](report/Rapport_PFE_Calcul_Scientifique_KABOURI_Mohamed.pdf)
+
+---
+
+*Realized as part of my Master 2 final project (PFE).*
